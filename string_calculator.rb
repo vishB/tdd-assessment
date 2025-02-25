@@ -20,7 +20,7 @@ def extract_delimiter(numbers)
 end
 
 def parse_numbers(delimiter,numbers)
-    numbers.split(Regexp.new(delimiter)).map(&:to_i)
+    numbers.split(Regexp.new(delimiter)).map(&:to_i).reject { |num| num > 1000 }
 end
 
 def check_negatives(num_list)
