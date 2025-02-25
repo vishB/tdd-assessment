@@ -1,6 +1,11 @@
 def add(numbers)
     return 0 if numbers.empty?
 
+    # Check if input string length exceeds 10,000 characters (example limit)
+    if numbers.length > 10_000
+        raise "Input string is too long (max: 10,000 characters, provided: #{numbers.length})"
+    end    
+
     delimiter, numbers = extract_delimiter(numbers) #get delimeters and numbers
     num_list = parse_numbers(delimiter,numbers) #get final numbers to be calculated
 
