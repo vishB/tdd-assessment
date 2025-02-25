@@ -5,6 +5,14 @@ RSpec.describe 'String Calculator' do
         expect(add("")).to eq(0)
     end
 
+    it 'returns 0 for albhabets' do
+        expect(add("a,b,c,d")).to eq(0)
+    end
+
+    it 'returns 0 for special characters' do
+        expect(add("!,@,#,$,%,^,&,*,(,),-,_,=,+,[,],{,},|,;,:,',\",,,.,<,>,?,/,\\,`~")).to eq(0)
+    end    
+
     it 'raises an error if the input string exceeds 10,000 characters' do
         long_string = "1,"*5001
         expect {(add(long_string))}.to raise_error("Input string is too long (max: 10,000 characters, provided: #{long_string.length})")
@@ -41,7 +49,7 @@ RSpec.describe 'String Calculator' do
             delimiter, numbers = extract_delimiter("//;\n1;2;3")
             expect(delimiter).to eq(";")
             expect(numbers).to eq("1;2;3")
-        end        
+        end       
     end
 
     describe 'parses input numbers' do
