@@ -5,6 +5,10 @@ RSpec.describe 'String Calculator' do
         expect(add("")).to eq(0)
     end
 
+    it 'returns message for negative values' do
+        expect { add("1,-2,3") }.to raise_error("Negative numbers not allowed: -2")
+    end
+
     describe 'manages delimeter' do
         it 'returns default delimiters (comma and newline) if no custom delimiter is provided' do
             delimiter, numbers = extract_delimiter("1,2,3")
