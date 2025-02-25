@@ -5,6 +5,10 @@ RSpec.describe 'String Calculator' do
         expect(add("")).to eq(0)
     end
 
+    it 'ignores numbers greater than 1000' do
+        expect(add("2,1001")).to eq(2)  # 1001 is ignored
+    end
+
     it 'returns the sum of comma-separated numbers' do
         expect(add("1,2,3")).to eq(6)
     end
